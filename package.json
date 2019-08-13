@@ -1,0 +1,32 @@
+{
+  "name": "curl-string",
+  "version": "1.0.0",
+  "description": "Get human readable cURL strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest && echo \"View Report here: $(pwd)/coverage/lcov-report/index.html\"",
+    "test:watch": "jest --watchAll --coverage && echo \"View Report here: $(pwd)/coverage/lcov-report/index.html\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zvakanaka/curl-string.git"
+  },
+  "keywords": [
+    "curl",
+    "string",
+    "fetch",
+    "command"
+  ],
+  "author": "Adam Quinton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zvakanaka/curl-string/issues"
+  },
+  "homepage": "https://github.com/zvakanaka/curl-string#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "color-json": "^2.0.0"
+  }
+}
