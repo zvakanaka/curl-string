@@ -1,4 +1,4 @@
-# request -> cURL String
+# request -> cURL string
 Debug API calls by printing human-readable cURL strings
 
 ## Motivation
