@@ -1,7 +1,7 @@
 {
   "name": "curl-string",
   "version": "1.0.0",
-  "description": "Get human readable cURL strings",
+  "description": "Get human-readable cURL strings",
   "main": "index.js",
   "scripts": {
     "test": "jest && echo \"View Report here: $(pwd)/coverage/lcov-report/index.html\"",
