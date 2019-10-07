@@ -22,7 +22,7 @@ const options = {
 if (debug) {
   console.log(curlString(url, options));  
 }
-// make real call here, e.g. await fetch(url, options);
+// make real call here, e.g. fetch(url, options);
 ```
 Output:  
 ![screenshot](https://imgur.com/FRlmfLR.png)
