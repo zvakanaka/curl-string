@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/zvakanaka/curl-string#readme",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^26.4.2"
   },
   "dependencies": {
     "color-json": "^2.0.0"
