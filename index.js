@@ -43,12 +43,9 @@ function curlString(
   return curl;
 }
 
-function getLowHeaders(headers) {
-  let lowHeaders = {}
-  Object.keys(headers).forEach(function (key) {
-    lowHeaders[key.toLowerCase()] = headers[key]
-  })
-  return lowHeaders
+function getHeader(options, headerKeyName) {
+  // return header that matches case, but if not found fall back to header that does not match case
+  return options.headers[headerKeyName] || options.headers[Object.keys(options.headers).find(key => key.toLowerCase() === headerKeyName.toLowerCase())]
 }
 
 function hasHeader(options, headerKeyName) {
@@ -71,11 +68,10 @@ function bodyToDataString(options, curlStringOptions) {
     // fall back to original body if it could not be parsed as JSON
     parsedData = options.body;
   }
-  const lowHeaders = getLowHeaders(options.headers)
 
   // return an ampersand delimited string
   if (hasHeader(options, 'content-type') &&
-      lowHeaders['content-type'].toLowerCase() === 'application/x-www-form-urlencoded') {
+      getHeader(options, 'content-type').toLowerCase() === 'application/x-www-form-urlencoded') {
     if (typeof parsedData === 'string') {
       return parsedData;
     } else {
