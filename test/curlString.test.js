@@ -181,3 +181,29 @@ curl --request POST \\
 --header 'content-type: application/x-www-form-urlencoded' \\
 --data 'hello=world&inTheWorld=true&ofTheWorld=false'`);
 });
+
+
+test('To handle x-www-form-urlencoded content-type header of different case and already URL encoded body', () => {
+  expect(
+    curlString(
+      'http://example.com',
+      {
+        method: 'post',
+        headers: {
+          accept: 'application/json',
+          'accept-language': 'en',
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'hello=world&inTheWorld=true&ofTheWorld=false'
+      },
+      { colorJson: false }
+    )
+  ).toBe(`
+curl --request POST \\
+--url http://example.com \\
+--header 'accept: application/json' \\
+--header 'accept-language: en' \\
+--header 'Content-Type: application/x-www-form-urlencoded' \\
+--data 'hello=world&inTheWorld=true&ofTheWorld=false'`);
+});
+
