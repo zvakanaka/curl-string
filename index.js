@@ -44,7 +44,8 @@ function curlString(
 }
 
 function getHeader(options, headerKeyName) {
-  return options.headers[headerKeyName];
+  // return header that matches case, but if not found fall back to header that does not match case
+  return options.headers[headerKeyName] || options.headers[Object.keys(options.headers).find(key => key.toLowerCase() === headerKeyName.toLowerCase())]
 }
 
 function hasHeader(options, headerKeyName) {
