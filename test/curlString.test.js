@@ -1,8 +1,7 @@
 const curlString = require('../index');
 
 test('To return a cURL for just a URL', () => {
-  expect(curlString('http://example.com')).toBe(`
-curl --request GET \\
+  expect(curlString('http://example.com')).toBe(`curl --request GET \\
 --url http://example.com`);
 });
 
@@ -13,8 +12,7 @@ test('To handle lowercase `post` and a body', () => {
       { method: 'post', body: { hello: 'world' } },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --data '{
   "hello": "world"
@@ -28,8 +26,7 @@ test('To handle lowercase `post` and a stringified body', () => {
       { method: 'post', body: JSON.stringify({ hello: 'world' }) },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --data '{
   "hello": "world"
@@ -43,8 +40,7 @@ test('To handle custom JSON indent width', () => {
       { method: 'post', body: { hello: 'world' } },
       { colorJson: false, jsonIndentWidth: 3 }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --data '{
    "hello": "world"
@@ -58,8 +54,7 @@ test('To handle just a header', () => {
       { headers: { accept: 'application/json' } },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request GET \\
+  ).toBe(`curl --request GET \\
 --url http://example.com \\
 --header 'accept: application/json'`);
 });
@@ -71,8 +66,7 @@ test('To handle just headers', () => {
       { headers: { accept: 'application/json', 'accept-language': 'en' } },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request GET \\
+  ).toBe(`curl --request GET \\
 --url http://example.com \\
 --header 'accept: application/json' \\
 --header 'accept-language: en'`);
@@ -85,8 +79,7 @@ test('To handle colorized JSON', () => {
       { method: 'post', body: { hello: 'world' } },
       { colorJson: true }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --data '[33m{
   [0m[37m"hello":[33m [0m[32m"world"[33m
@@ -104,8 +97,7 @@ test('To handle a header and a body', () => {
       },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --header 'accept: application/json' \\
 --data '{
@@ -124,8 +116,7 @@ test('To handle headers and a body', () => {
       },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --header 'accept: application/json' \\
 --header 'accept-language: en' \\
@@ -149,8 +140,7 @@ test('To handle x-www-form-urlencoded content-type header and JSON body', () => 
       },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --header 'accept: application/json' \\
 --header 'accept-language: en' \\
@@ -173,8 +163,7 @@ test('To handle x-www-form-urlencoded content-type header and already URL encode
       },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --header 'accept: application/json' \\
 --header 'accept-language: en' \\
@@ -198,8 +187,7 @@ test('To handle x-www-form-urlencoded content-type header of different case and 
       },
       { colorJson: false }
     )
-  ).toBe(`
-curl --request POST \\
+  ).toBe(`curl --request POST \\
 --url http://example.com \\
 --header 'accept: application/json' \\
 --header 'accept-language: en' \\
