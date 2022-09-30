@@ -24,7 +24,7 @@ function curlString(
     options && options.headers && typeof options.headers === 'object';
   const hasBody = options && options.body;
 
-  let curl = `\ncurl --request ${method} \\\n--url ${url}${
+  let curl = `curl --request ${method} \\\n--url ${url}${
     hasHeaders || hasBody ? ' \\' : ''
   }`;
 
