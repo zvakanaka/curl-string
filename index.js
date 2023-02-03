@@ -1,7 +1,5 @@
-const cj = require('color-json');
+import cj from 'color-json';
 const hasOwnProperty = (object, property) => Object.prototype.hasOwnProperty.call(object, property);
-
-module.exports = curlString;
 
 /**
  * Builds a curl command and returns the string.
@@ -10,7 +8,7 @@ module.exports = curlString;
  * @param  {Object} [curlStringOptions={colorJson:true,jsonIndentWidth:2}] Formatting options
  * @return {String}                   cURL command
  */
-function curlString(
+export default function curlString(
   url,
   options,
   curlStringOptions = { colorJson: true, jsonIndentWidth: 2 }
@@ -24,15 +22,13 @@ function curlString(
     options && options.headers && typeof options.headers === 'object';
   const hasBody = options && options.body;
 
-  let curl = `curl --request ${method} \\\n--url ${url}${
-    hasHeaders || hasBody ? ' \\' : ''
-  }`;
+  let curl = `curl --request ${method} \\\n--url ${url}${hasHeaders || hasBody ? ' \\' : ''
+    }`;
 
   if (hasHeaders) {
     Object.entries(options.headers).forEach(([key, value], i) => {
-      curl += `\n--header '${key}: ${value}'${
-        hasBody || i < Object.keys(options.headers).length - 1 ? ' \\' : ''
-      }`;
+      curl += `\n--header '${key}: ${value}'${hasBody || i < Object.keys(options.headers).length - 1 ? ' \\' : ''
+        }`;
     });
   }
 
@@ -71,7 +67,7 @@ function bodyToDataString(options, curlStringOptions) {
 
   // return an ampersand delimited string
   if (hasHeader(options, 'content-type') &&
-      getHeader(options, 'content-type').toLowerCase() === 'application/x-www-form-urlencoded') {
+    getHeader(options, 'content-type').toLowerCase() === 'application/x-www-form-urlencoded') {
     if (typeof parsedData === 'string') {
       return parsedData;
     } else {
@@ -89,3 +85,4 @@ function bodyToDataString(options, curlStringOptions) {
       : JSON.stringify(parsedData, null, jsonIndentWidth);
   }
 }
+

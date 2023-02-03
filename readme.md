@@ -9,7 +9,7 @@ Debug API calls by printing human-readable cURL strings
 
 ## Usage
 ```js
-const curlString = require('curl-string');
+import curlString from 'curl-string';
 const debug = true;
 
 const url = 'http://example.com';
