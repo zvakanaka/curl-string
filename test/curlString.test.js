@@ -1,4 +1,4 @@
-const curlString = require('../index');
+import curlString from '../index.js';
 
 test('To return a cURL for just a URL', () => {
   expect(curlString('http://example.com')).toBe(`curl --request GET \\
