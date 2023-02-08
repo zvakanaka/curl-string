@@ -33,3 +33,10 @@ Output:
 const curlStringOptions = { colorJson: true, jsonIndentWidth: 2}; // (these are the defaults)
 const str = curlString(url, options, curlStringOptions);
 ```
+
+## Versions
+### 3.0.x
+Converted to [ESM](https://github.com/sindresorhus/meta/discussions/15) (`import` instead of `require`).
+### 2.x.x 
+Use this version if you still need `require` syntax (CommonJS).
+
