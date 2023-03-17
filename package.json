@@ -1,6 +1,6 @@
 {
   "name": "curl-string",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Get human-readable cURL strings",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js && echo \"View Report here: $(pwd)/coverage/lcov-report/index.html\"",

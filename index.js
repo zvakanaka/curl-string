@@ -22,7 +22,7 @@ export default function curlString(
     options && options.headers && typeof options.headers === 'object';
   const hasBody = options && options.body;
 
-  let curl = `curl --request ${method} \\\n--url ${url}${hasHeaders || hasBody ? ' \\' : ''
+  let curl = `curl --request ${method} \\\n--url ${url.replace(/\s/g, '%20')}${hasHeaders || hasBody ? ' \\' : ''
     }`;
 
   if (hasHeaders) {

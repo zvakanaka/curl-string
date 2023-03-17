@@ -5,6 +5,11 @@ test('To return a cURL for just a URL', () => {
 --url http://example.com`);
 });
 
+test('To return a cURL with %20 for a URL with spaces', () => {
+  expect(curlString('http://example.com/?param=a nice blue sky')).toBe(`curl --request GET \\
+--url http://example.com/?param=a%20nice%20blue%20sky`);
+});
+
 test('To handle lowercase `post` and a body', () => {
   expect(
     curlString(
