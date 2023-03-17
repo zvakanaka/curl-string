@@ -35,8 +35,8 @@ const str = curlString(url, options, curlStringOptions);
 ```
 
 ## Versions
-### 3.0.x
+### 3.x.x and Above
 Converted to [ESM](https://github.com/sindresorhus/meta/discussions/15) (`import` instead of `require`).
-### 2.x.x 
+### 2.x.x and Below
 Use this version if you still need `require` syntax (CommonJS).
 
